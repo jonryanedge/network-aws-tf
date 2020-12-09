@@ -64,10 +64,10 @@ variable "vpnConnections" {
 variable "rt53resolvers" {
   type = map
   default = {
-    "resolverIp1" = "1.1.1.53"
-    "resolverIp2" = "2.2.2.53"
-    "forwarderIp1" = "3.3.3.53"
-    "forwarderIp2" = "4.4.4.53"
+    "resolverIp1" = "10.0.0.140"
+    "resolverIp2" = "10.0.0.170"
+    "forwarderIp1" = "10.0.0.141"
+    "forwarderIp2" = "10.0.0.171"
     "targetIp1" = "8.8.8.8"
     "targetIp2" = "8.8.4.4"
   }
