@@ -57,11 +57,19 @@ resource "aws_route_table" "edgePublicRT" {
   }
 }
 
-resource "aws_route_table" "edgePrivateRT" {
+resource "aws_route_table" "edgePrivateRtA" {
   vpc_id = aws_vpc.edge.id
 
   tags = {
-    "Name" = "Private RT"
+    "Name" = "Private RT A"
+  }
+}
+
+resource "aws_route_table" "edgePrivateRtB" {
+  vpc_id = aws_vpc.edge.id
+
+  tags = {
+    "Name" = "Private RT B"
   }
 }
 
@@ -75,13 +83,13 @@ resource "aws_route_table_association" "public2RT" {
   subnet_id = aws_subnet.public2.id
 }
 
-resource "aws_route_table_association" "private1RT" {
-  route_table_id = aws_route_table.edgePrivateRT.id
+resource "aws_route_table_association" "private1RtA" {
+  route_table_id = aws_route_table.edgePrivateRtA.id
   subnet_id = aws_subnet.private1.id
 }
 
-resource "aws_route_table_association" "private2RT" {
-  route_table_id = aws_route_table.edgePrivateRT.id
+resource "aws_route_table_association" "private2RtB" {
+  route_table_id = aws_route_table.edgePrivateRtB.id
   subnet_id = aws_subnet.private2.id
 }
 
