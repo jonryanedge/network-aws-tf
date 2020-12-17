@@ -76,6 +76,30 @@ resource "aws_vpc_endpoint" "ecs" {
   private_dns_enabled = true
 }
 
+resource "aws_vpc_endpoint" "ecs-agent" {
+  vpc_id            = aws_vpc.core.id
+  service_name      = "com.amazonaws.${var.region}.ecs-agent"
+  vpc_endpoint_type = "Interface"
+
+  security_group_ids = [
+    aws_security_group.sg1.id,
+  ]
+
+  private_dns_enabled = true
+}
+
+resource "aws_vpc_endpoint" "ecs-telemetry" {
+  vpc_id            = aws_vpc.core.id
+  service_name      = "com.amazonaws.${var.region}.ecs-telemetry"
+  vpc_endpoint_type = "Interface"
+
+  security_group_ids = [
+    aws_security_group.sg1.id,
+  ]
+
+  private_dns_enabled = true
+}
+
 resource "aws_vpc_endpoint" "rds" {
   vpc_id            = aws_vpc.core.id
   service_name      = "com.amazonaws.${var.region}.rds"
