@@ -7,11 +7,11 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_eip" "ngwIp1" {
-  subnet_id = aws_subnet.public1.id
+  vpc = true
 }
 
 resource "aws_eip" "ngwIp2" {
-  subnet_id = aws_subnet.public2.id
+  vpc = true
 }
 
 resource "aws_nat_gateway" "ngw1" {
@@ -24,10 +24,16 @@ resource "aws_nat_gateway" "ngw2" {
   subnet_id = aws_subnet.private2.id
 }
 
-resource "aws_route_table_association" "rt-ngw1" {
-  
+resource "aws_route" "rt-ngw1" {
+  route_table_id = aws_route_table.edgePrivateRT.id
+  destination_cidr_block = "0.0.0.0/0"
+  nat_gateway_id = aws_nat_gateway.ngw1.id
+  subnet_id = aws_subnet.private1
 }
 
-resource "aws_route_table_association" "rt-ngw2" {
-  
+resource "aws_route" "rt-ngw2" {
+  route_table_id = aws_route_table.edgePrivateRT.id
+  destination_cidr_block = "0.0.0.0/0"
+  nat_gateway_id = aws_nat_gateway.ngw2.id
+  subnet_id = aws_subnet.private2
 }
