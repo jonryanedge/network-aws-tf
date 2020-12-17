@@ -2,7 +2,6 @@
 resource "aws_vpc_endpoint" "s3" {
   vpc_id       = aws_vpc.core.id
   service_name = "com.amazonaws.${var.region}.s3"
-  private_dns_enabled = true
 
   tags = {
     Environment = "test"
@@ -14,7 +13,6 @@ resource "aws_vpc_endpoint" "db" {
   service_name      = "com.amazonaws.${var.region}.dynamodb"
   vpc_endpoint_type = "Gateway"
 
-  private_dns_enabled = true
 }
 
 # Interface endpoints
