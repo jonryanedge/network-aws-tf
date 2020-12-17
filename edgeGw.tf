@@ -28,12 +28,10 @@ resource "aws_route" "rt-ngw1" {
   route_table_id = aws_route_table.edgePrivateRT.id
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id = aws_nat_gateway.ngw1.id
-  subnet_id = aws_subnet.private1
 }
 
 resource "aws_route" "rt-ngw2" {
   route_table_id = aws_route_table.edgePrivateRT.id
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id = aws_nat_gateway.ngw2.id
-  subnet_id = aws_subnet.private2
 }
