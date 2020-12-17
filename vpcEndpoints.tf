@@ -40,9 +40,21 @@ resource "aws_vpc_endpoint" "lambda" {
   private_dns_enabled = true
 }
 
-resource "aws_vpc_endpoint" "ecr" {
+resource "aws_vpc_endpoint" "ecr-api" {
   vpc_id            = aws_vpc.core.id
-  service_name      = "com.amazonaws.${var.region}.ecr"
+  service_name      = "com.amazonaws.${var.region}.ecr.api"
+  vpc_endpoint_type = "Interface"
+
+  security_group_ids = [
+    aws_security_group.sg1.id,
+  ]
+
+  private_dns_enabled = true
+}
+
+resource "aws_vpc_endpoint" "ecr-dkr" {
+  vpc_id            = aws_vpc.core.id
+  service_name      = "com.amazonaws.${var.region}.ecr.dkr"
   vpc_endpoint_type = "Interface"
 
   security_group_ids = [
