@@ -54,17 +54,17 @@ resource "aws_vpc_endpoint" "ecs" {
 }
 
 # eks endpoint not deploying correctly
-# resource "aws_vpc_endpoint" "eks" {
-#   vpc_id            = aws_vpc.core.id
-#   service_name      = "com.amazonaws.${var.region}.eks"
-#   vpc_endpoint_type = "Interface"
+resource "aws_vpc_endpoint" "eks" {
+  vpc_id            = aws_vpc.core.id
+  service_name      = "com.amazonaws.${var.region}.eks"
+  vpc_endpoint_type = "Interface"
 
-#   security_group_ids = [
-#     aws_security_group.sg1.id,
-#   ]
+  security_group_ids = [
+    aws_security_group.sg1.id,
+  ]
 
-#   private_dns_enabled = true
-# }
+  private_dns_enabled = true
+}
 
 resource "aws_vpc_endpoint" "codecommit" {
   vpc_id            = aws_vpc.core.id
