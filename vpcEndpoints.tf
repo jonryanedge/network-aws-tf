@@ -29,17 +29,17 @@ resource "aws_vpc_endpoint" "ec2" {
 }
 
 # ecr endpoint not deploying correctly
-# resource "aws_vpc_endpoint" "ecr" {
-#   vpc_id            = aws_vpc.core.id
-#   service_name      = "com.amazonaws.${var.region}.ecr"
-#   vpc_endpoint_type = "Interface"
+resource "aws_vpc_endpoint" "ecr" {
+  vpc_id            = aws_vpc.core.id
+  service_name      = "com.amazonaws.${var.region}.ecr"
+  vpc_endpoint_type = "Interface"
 
-#   security_group_ids = [
-#     aws_security_group.sg1.id,
-#   ]
+  security_group_ids = [
+    aws_security_group.sg1.id,
+  ]
 
-#   private_dns_enabled = true
-# }
+  private_dns_enabled = true
+}
 
 resource "aws_vpc_endpoint" "ecs" {
   vpc_id            = aws_vpc.core.id
@@ -53,18 +53,18 @@ resource "aws_vpc_endpoint" "ecs" {
   private_dns_enabled = true
 }
 
-# eks endpoint not deploying correctly
-resource "aws_vpc_endpoint" "eks" {
-  vpc_id            = aws_vpc.core.id
-  service_name      = "com.amazonaws.${var.region}.eks"
-  vpc_endpoint_type = "Interface"
+# eks endpoint not available in us-east-1 region
+# resource "aws_vpc_endpoint" "eks" {
+#   vpc_id            = aws_vpc.core.id
+#   service_name      = "com.amazonaws.${var.region}.eks"
+#   vpc_endpoint_type = "Interface"
 
-  security_group_ids = [
-    aws_security_group.sg1.id,
-  ]
+#   security_group_ids = [
+#     aws_security_group.sg1.id,
+#   ]
 
-  private_dns_enabled = true
-}
+#   private_dns_enabled = true
+# }
 
 resource "aws_vpc_endpoint" "codecommit" {
   vpc_id            = aws_vpc.core.id
@@ -78,7 +78,7 @@ resource "aws_vpc_endpoint" "codecommit" {
   private_dns_enabled = true
 }
 
-# iam endpoint not deploying correctly 
+# iam endpoint not available in us-east-1 region 
 # resource "aws_vpc_endpoint" "iam" {
 #   vpc_id            = aws_vpc.core.id
 #   service_name      = "com.amazonaws.${var.region}.iam"
@@ -90,6 +90,18 @@ resource "aws_vpc_endpoint" "codecommit" {
 
 #   private_dns_enabled = true
 # }
+
+resource "aws_vpc_endpoint" "kms" {
+  vpc_id            = aws_vpc.core.id
+  service_name      = "com.amazonaws.${var.region}.kms"
+  vpc_endpoint_type = "Interface"
+
+  security_group_ids = [
+    aws_security_group.sg1.id,
+  ]
+
+  private_dns_enabled = true
+}
 
 resource "aws_vpc_endpoint" "ssm" {
   vpc_id            = aws_vpc.core.id
