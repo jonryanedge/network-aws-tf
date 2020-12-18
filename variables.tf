@@ -76,7 +76,7 @@ variable "dxgw" {
   type = map
   default = {
     "dxAsn" = "65505"
-    "dxCidr" = "10.1.0.0/16"
+    "dxCidr" = "10.0.0.0/16"
   }
 }
 
