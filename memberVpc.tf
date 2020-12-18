@@ -39,16 +39,16 @@ resource "aws_route_table" "memberRT" {
 
 resource "aws_route_table_association" "private1Rt" {
   route_table_id = aws_route_table.memberRT.id
-  subnet_id = aws_subnet.private1.id
+  subnet_id = aws_subnet.member1.id
 }
 
 resource "aws_route_table_association" "private2Rt" {
   route_table_id = aws_route_table.memberRT.id
-  subnet_id = aws_subnet.private2.id
+  subnet_id = aws_subnet.member2.id
 }
 
 resource "aws_ec2_transit_gateway_vpc_attachment" "memberVpcTgwAttachment" {
-  subnet_ids         = [aws_subnet.private1.id, aws_subnet.private2.id]
+  subnet_ids         = [aws_subnet.member1.id, aws_subnet.member2.id]
   transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   transit_gateway_default_route_table_association = true
   vpc_id             = aws_vpc.member.id

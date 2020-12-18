@@ -130,3 +130,8 @@ Multiple VPC connectivity requires:
 Transit Virtual Interfaces connect Transit Gateway resources with on-premises networks via Direct Connect.
 * Requires 1Gbps or larger DX connection
 * DXGW and TGW must use different ASNs
+
+#
+# Automated Operations Workflow
+
+Networking components in AWS might require special handling in large scale landing zone environments. 
