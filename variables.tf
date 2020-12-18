@@ -75,7 +75,8 @@ variable "vpnConnections" {
 variable "dxgw" {
   type = map
   default = {
-    "dxgwAsn" = "65505"
+    "dxAsn" = "65505"
+    "dxCidr" = "10.0.0.0/16"
   }
 }
 
