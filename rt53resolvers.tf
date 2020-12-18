@@ -80,11 +80,11 @@ resource "aws_route53_resolver_rule" "fwdAll" {
   resolver_endpoint_id = aws_route53_resolver_endpoint.coreForwarder.id
 
   target_ip {
-    ip = var.rt53resolvers["targetIp1"]
+    ip = var.rt53resolvers["162.159.27.72"]
   }
 
   target_ip {
-    ip = var.rt53resolvers["targetIp2"]
+    ip = var.rt53resolvers["162.159.24.39"]
   }
 
   tags = {
