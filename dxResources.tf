@@ -3,7 +3,7 @@ resource "aws_dx_gateway" "dxgw1" {
   amazon_side_asn = var.dxgw["dxAsn"]
 }
 
-resource "aws_dx_gateway_association" "dxgw1A" {
+resource "aws_dx_gateway_association" "coreVgwDxGw" {
   dx_gateway_id = aws_dx_gateway.dxgw1.id
   associated_gateway_id = aws_vpn_gateway.coreVgw.id
 }
