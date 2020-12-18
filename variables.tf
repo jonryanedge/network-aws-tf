@@ -72,6 +72,13 @@ variable "vpnConnections" {
   }
 }
 
+variable "dxgw" {
+  type = map
+  default = {
+    "dxgwAsn" = "65505"
+  }
+}
+
 variable "rt53resolvers" {
   type = map
   default = {
