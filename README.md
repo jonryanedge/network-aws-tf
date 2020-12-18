@@ -21,6 +21,8 @@
   * `rt53resolvers.tf` - includes Rt53 PHZs, Inbound Endpoints, Outbound Endpoints, Resolver Rules
 - VPC Endpoints
   * `vpcEndpoints.tf` - includes VPC gateway and interface endpoints
+- Direct Connect
+  * `dxResources.tf` - included DxGw, DX connections, VIFs, routes and attachments
 - Security Groups
   * `securityGroups.tf` - includes Security Groups used by other stacks
 
@@ -59,6 +61,7 @@ coreSubnets | name: x.x.x.x/x | Map of CIDR blocks for core vpc subnets
 edgeSubnets | name: x.x.x.x/x | Map of CIDR blocks for edge vpc subnets
 memberVpc | key: value | Map of parameters for Member VPCs and subnets
 vpnConnections | key: value | Map of parameters for VPN connections
+dxgw | key: value | Map of parameters for DX gateway and connections
 rt53resolvers | key: value | Map of parameters for Route 53 resolvers and targets
 
 #
