@@ -102,3 +102,8 @@ resource "aws_route53_resolver_rule_association" "coreAllRule" {
   vpc_id = aws_vpc.core.id
 }
 
+resource "aws_route53_resolver_rule_association" "edgeAllRule" {
+  resolver_rule_id = aws_route53_resolver_rule.fwdAll.id
+  vpc_id = aws_vpc.edge.id
+}
+
