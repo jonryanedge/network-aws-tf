@@ -10,6 +10,8 @@
   * `coreRouter.tf` - includes TGW, TGW Route tables, SSM Parameter
 - Core VPC
   * `coreVpc.tf` - includes VPC, Subnets, Route tables, RT & TGW attachments
+- Member VPC
+  * `memberVpc.tf` - includes VPC, Subnets, Route tables & routes, TGW Attachments
 - Edge VPC
   * `edgeVpc.tf` - includes VPC, Subnets, Route tables, RT & TGW attachments
   * `edgeGw.tf` - includes IGW, NAT gateways, and routes
@@ -55,6 +57,7 @@ coreCidr | X.X.X.X/X | CIDR Block for core vpc
 edgeCidr | X.X.X.X/X | CIDR Block for edge vpc 
 coreSubnets | name: x.x.x.x/x | Map of CIDR blocks for core vpc subnets
 edgeSubnets | name: x.x.x.x/x | Map of CIDR blocks for edge vpc subnets
+memberVpc | key: value | Map of parameters for Member VPCs and subnets
 vpnConnections | key: value | Map of parameters for VPN connections
 rt53resolvers | key: value | Map of parameters for Route 53 resolvers and targets
 
@@ -126,3 +129,4 @@ Multiple VPC connectivity requires:
   
 Transit Virtual Interfaces connect Transit Gateway resources with on-premises networks via Direct Connect.
 * Requires 1Gbps or larger DX connection
+* DXGW and TGW must use different ASNs
