@@ -104,3 +104,8 @@ resource "aws_ec2_transit_gateway_route_table_association" "edgeVpcRtAssociation
   transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.edgeVpcTgwAttachment.id
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.edgeRouteTable.id
 }
+
+resource "aws_route53_zone_association" "memberRt53Zone1" {
+  vpc_id = aws_vpc.edge.id
+  zone_id = aws_route53_zone.zone1.id
+}
