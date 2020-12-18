@@ -137,4 +137,10 @@ Transit Virtual Interfaces connect Transit Gateway resources with on-premises ne
 #
 # Automated Operations Workflow
 
-Networking components in AWS might require special handling in large scale landing zone environments. 
+Networking components in AWS may require special handling in large scale landing zone environments. 
+
+* Account number from vended accounts will be required for member deployment
+* IAM roles can be assumed from LZ build to ensure cross-account access for deploying network resources
+* Vend to build workflows should be maintained to ensure consistent configurations for deployed network resources
+
+![sample workflow](./assets/workflowExample.png)
