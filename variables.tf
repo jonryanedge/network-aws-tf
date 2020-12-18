@@ -55,10 +55,10 @@ variable "memberVpc" {
   type = map
   default = {
     "vpcCidr" = "10.0.10.0/24"
-    "private1" = "10.0.10.0/27"
-    "private2" = "10.0.10.32/27"
-    "private3" = "10.0.10.64/27"
-    "private4" = "10.0.10.96/27"
+    "member1" = "10.0.10.0/27"
+    "member2" = "10.0.10.32/27"
+    "member3" = "10.0.10.64/27"
+    "member4" = "10.0.10.96/27"
   }
 }
 

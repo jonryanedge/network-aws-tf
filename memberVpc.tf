@@ -9,23 +9,23 @@ resource "aws_vpc" "member" {
   }
 }
 
-resource "aws_subnet" "private1" {
+resource "aws_subnet" "member1" {
   vpc_id = aws_vpc.member.id
-  cidr_block = var.memberVpc["private1"]
+  cidr_block = var.memberVpc["member1"]
   availability_zone = data.aws_availability_zones.available.names[0]
 
   tags = {
-    "Name" = "Private1",
+    "Name" = "Member1",
   }
 }
 
-resource "aws_subnet" "private2" {
+resource "aws_subnet" "member2" {
   vpc_id = aws_vpc.member.id
-  cidr_block = var.memberVpc["private2"]
+  cidr_block = var.memberVpc["member2"]
   availability_zone = data.aws_availability_zones.available.names[1]
 
   tags = {
-    "Name" = "Private2",
+    "Name" = "Member2",
   }
 }
 
