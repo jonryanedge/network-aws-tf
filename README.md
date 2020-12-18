@@ -11,7 +11,7 @@
 - Core VPC
   * `coreVpc.tf` - includes VPC, Subnets, Route tables, RT & TGW attachments
 - Member VPC
-  * `memberVpc.tf` - includes VPC, Subnets, Route tables & routes, TGW Attachments
+  * `memberVpc.tf` - includes VPC, Subnets, Route tables & routes, TGW Attachments, Rt53 zones & rules
 - Edge VPC
   * `edgeVpc.tf` - includes VPC, Subnets, Route tables, RT & TGW attachments
   * `edgeGw.tf` - includes IGW, NAT gateways, and routes
