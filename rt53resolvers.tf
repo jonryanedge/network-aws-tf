@@ -73,6 +73,25 @@ resource "aws_route53_resolver_rule" "mainFwd" {
   }
 }
 
+resource "aws_route53_resolver_rule" "fwdAll" {
+  domain_name = "."
+  name = "fwdAllDns"
+  rule_type = "FORWARD"
+  resolver_endpoint_id = aws_route53_resolver_endpoint.coreForwarder.id
+
+  target_ip {
+    ip = var.rt53resolvers["targetIp1"]
+  }
+
+  target_ip {
+    ip = var.rt53resolvers["targetIp2"]
+  }
+
+  tags = {
+    "Name" = "Default DNS forwarder"
+  }
+}
+
 resource "aws_route53_resolver_rule_association" "coreFwdRule" {
   resolver_rule_id = aws_route53_resolver_rule.mainFwd.id
   vpc_id = aws_vpc.core.id
