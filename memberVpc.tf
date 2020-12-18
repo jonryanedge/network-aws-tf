@@ -70,3 +70,7 @@ resource "aws_route53_resolver_rule_association" "memberRt53Rule1" {
  resolver_rule_id = aws_route53_resolver_rule.mainFwd.id
 }
 
+resource "aws_vpn_gateway" "memberVgw" {
+  vpc_id = aws_vpc.member.id
+}
+
