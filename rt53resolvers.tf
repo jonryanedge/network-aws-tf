@@ -75,7 +75,7 @@ resource "aws_route53_resolver_rule" "mainFwd" {
 
 resource "aws_route53_resolver_rule" "fwdAll" {
   domain_name = "."
-  name = "fwdAllDns"
+  name = "fwdAll"
   rule_type = "FORWARD"
   resolver_endpoint_id = aws_route53_resolver_endpoint.coreForwarder.id
 
@@ -94,6 +94,11 @@ resource "aws_route53_resolver_rule" "fwdAll" {
 
 resource "aws_route53_resolver_rule_association" "coreFwdRule" {
   resolver_rule_id = aws_route53_resolver_rule.mainFwd.id
+  vpc_id = aws_vpc.core.id
+}
+
+resource "aws_route53_resolver_rule_association" "coreAllRule" {
+  resolver_rule_id = aws_route53_resolver_rule.fwdAll.id
   vpc_id = aws_vpc.core.id
 }
 
