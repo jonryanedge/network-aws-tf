@@ -37,12 +37,12 @@ resource "aws_route_table" "memberRT" {
   }
 }
 
-resource "aws_route_table_association" "private1Rt" {
+resource "aws_route_table_association" "member1RT" {
   route_table_id = aws_route_table.memberRT.id
   subnet_id = aws_subnet.member1.id
 }
 
-resource "aws_route_table_association" "private2Rt" {
+resource "aws_route_table_association" "member2RT" {
   route_table_id = aws_route_table.memberRT.id
   subnet_id = aws_subnet.member2.id
 }
