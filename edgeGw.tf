@@ -22,12 +22,12 @@ resource "aws_eip" "ngwIp2" {
 
 resource "aws_nat_gateway" "ngw1" {
   allocation_id = aws_eip.ngwIp1.id
-  subnet_id = aws_subnet.private1.id
+  subnet_id = aws_subnet.public1.id
 }
 
 resource "aws_nat_gateway" "ngw2" {
   allocation_id = aws_eip.ngwIp2.id
-  subnet_id = aws_subnet.private2.id
+  subnet_id = aws_subnet.public.id
 }
 
 resource "aws_route" "rt-ngw1" {
