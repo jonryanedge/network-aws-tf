@@ -7,10 +7,10 @@ terraform {
   }
   backend "s3" {
     encrypt = true
-    bucket = "terraformpipelinestack-piplinebucket95931823-hqknz3z7xu6i"
-    dynamodb_table = "terraform-state-lock-db"
+    bucket = "terraformpipelinestack-pipelinebucket61883daa-13kdxn2qauriu"
+    dynamodb_table = "tfDbLock-Test"
     key = "terraform.tfstate"
-    region = "us-east-1"
+    region = "ca-central-1"
   }
 }
 
