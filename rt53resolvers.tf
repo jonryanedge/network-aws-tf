@@ -1,5 +1,5 @@
 resource "aws_route53_zone" "zone1" {
-  name = "zone1.example.com"
+  name = "test.example.com"
   
   vpc {
     vpc_id = aws_vpc.core.id
