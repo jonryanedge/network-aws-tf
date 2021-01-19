@@ -7,8 +7,8 @@ terraform {
   }
   backend "s3" {
     encrypt = true
-    bucket = "pipeline-pipelinebucket61883daa-1p7kpsu30pjuh"
-    dynamodb_table = "tfDbLock-Test"
+    bucket = "pipeline-tfpipelinebucketbcb88dbb-147dj309myn6x"
+    dynamodb_table = "tf-State-Lock"
     key = "terraform.tfstate"
     region = "ca-central-1"
   }
