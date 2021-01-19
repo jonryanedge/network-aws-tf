@@ -14,8 +14,8 @@ phases:
 
   build:
     commands:
-      - terraform destroy -auto-approve
+      - terraform apply -auto-approve
 
   post_build:
     commands:
-      - echo terraform destroy completed
+      - echo terraform apply completed
