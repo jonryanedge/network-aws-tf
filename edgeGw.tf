@@ -15,7 +15,7 @@ resource "aws_route" "defaultPublicRoute" {
 resource "aws_route" "internalRoute" {
   route_table_id = aws_route_table.edgePublicRT.id
   destination_cidr_block = "10.0.0.0/8"
-  gateway_id = aws_transit_gateway.tgw.id
+  transit_gateway_id = aws_ec2_transit_gateway.tgw.id
 }
 
 resource "aws_eip" "ngwIp1" {
