@@ -16,6 +16,7 @@ resource "aws_ec2_transit_gateway" "tgw" {
 }
 
 resource "aws_ssm_parameter" "tgwParam" {
+  overwrite = true
   type        = "String"
   name        = "/network/coreRouterId"
   description = "Core Transit Gateway Id"
