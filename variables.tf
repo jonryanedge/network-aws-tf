@@ -1,5 +1,5 @@
 variable "region" {
-  default = "us-west-1"
+  default = "ca-central-1"
   description = "Region to deploy (default is us-east-1)"
 }
 

@@ -14,7 +14,7 @@ phases:
 
   build:
     commands:
-      - terraform destroy -auto-approve 
+      - terraform $TF_COMMAND -auto-approve 
 
   post_build:
     commands:
