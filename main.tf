@@ -7,10 +7,10 @@ terraform {
   }
   backend "s3" {
     encrypt = true
-    bucket = "pipeline-artifacts7424475b-1svmubgw7qfo6"
-    dynamodb_table = "tf-State-Lock"
+    bucket = "q4g2e-artifacts"
+    dynamodb_table = "tf-Lock-q4g2e"
     key = "terraform.tfstate"
-    region = "ca-central-1"
+    region = "us-west-1"
   }
 }
 
