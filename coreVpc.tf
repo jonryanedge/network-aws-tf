@@ -97,6 +97,21 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "coreVpcTgwAttachment" {
   }
 }
 
+resource "aws_ec2_transit_gateway_route_table_association" "link-coreVrf" {
+  transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.coreVpcTgwAttachment.id
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.coreRouteTable.id
+}
+
+resource "aws_ec2_transit_gateway_route_table_propagation" "prop-coreVrf" {
+  transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.coreVpcTgwAttachment.id
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.coreRouteTable.id
+}
+
+resource "aws_ec2_transit_gateway_route_table_association" "core-prop-edgeVrf" {
+  transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.coreVpcTgwAttachment.id
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.edgeRouteTable.id
+}
+
 resource "aws_route" "coreRoute" {
   route_table_id = aws_route_table.CoreRT.id
   destination_cidr_block = "0.0.0.0/0"
