@@ -1,5 +1,5 @@
 resource "aws_security_group" "sg1" {
-  name = "sg-allow-all"
+  name = "defaultAllow"
   vpc_id = aws_vpc.core.id
   
   ingress {
