@@ -94,6 +94,19 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "coreVpcTgwAttachment" {
   vpc_id             = aws_vpc.core.id
 }
 
+resource "aws_route" "coreRoute" {
+  route_table_id = aws_route_table.CoreRT.id
+  destination_cidr_block = "0.0.0.0/0"
+  transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+}
+
+resource "aws_route" "sharedRoute" {
+  route_table_id = aws_route_table.SharedRT.id
+  destination_cidr_block = "0.0.0.0/0"
+  transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+}
+
 resource "aws_vpn_gateway" "coreVgw" {
   vpc_id = aws_vpc.core.id
 }
+
