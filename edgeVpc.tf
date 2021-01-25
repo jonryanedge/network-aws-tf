@@ -98,6 +98,9 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "edgeVpcTgwAttachment" {
   transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   transit_gateway_default_route_table_association = false
   vpc_id             = aws_vpc.edge.id
+  tags = {
+    "Name" = "edgeIO"
+  }
 }
 
 resource "aws_ec2_transit_gateway_route_table_association" "edgeVpcRtAssociation" {

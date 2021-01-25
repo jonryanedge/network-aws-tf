@@ -25,6 +25,9 @@ resource "aws_ssm_parameter" "tgwParam" {
 
 resource "aws_ec2_transit_gateway_route_table" "edgeRouteTable" {
   transit_gateway_id = aws_ec2_transit_gateway.tgw.id
+  tags = {
+    "Name" = "edgeVRF"
+  }
 }
 
 resource "aws_ec2_transit_gateway_route" "DefaultRoute" {

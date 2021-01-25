@@ -92,6 +92,9 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "coreVpcTgwAttachment" {
     ]
   transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   vpc_id             = aws_vpc.core.id
+  tags = {
+    "Name" = "coreIO"
+  }
 }
 
 resource "aws_route" "coreRoute" {

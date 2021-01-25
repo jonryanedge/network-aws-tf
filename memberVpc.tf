@@ -52,6 +52,9 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "memberVpcTgwAttachment" {
   transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   transit_gateway_default_route_table_association = true
   vpc_id             = aws_vpc.member.id
+  tags = {
+    "Name" = "memberIO"
+  }
 }
 
 resource "aws_route" "memberTgw" {
