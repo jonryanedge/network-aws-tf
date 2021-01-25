@@ -60,17 +60,17 @@ resource "aws_route" "memberTgw" {
   destination_cidr_block = "0.0.0.0/0"
 }
 
-resource "aws_route53_zone_association" "memberRt53Zone1" {
-  vpc_id = aws_vpc.member.id
-  zone_id = aws_route53_zone.zone1.id
-}
+# resource "aws_route53_zone_association" "memberRt53Zone1" {
+#   vpc_id = aws_vpc.member.id
+#   zone_id = aws_route53_zone.zone1.id
+# }
 
-resource "aws_route53_resolver_rule_association" "memberRt53Rule1" {
- vpc_id = aws_vpc.member.id 
- resolver_rule_id = aws_route53_resolver_rule.mainFwd.id
-}
+# resource "aws_route53_resolver_rule_association" "memberRt53Rule1" {
+#  vpc_id = aws_vpc.member.id 
+#  resolver_rule_id = aws_route53_resolver_rule.mainFwd.id
+# }
 
-resource "aws_vpn_gateway" "memberVgw" {
-  vpc_id = aws_vpc.member.id
-}
+# resource "aws_vpn_gateway" "memberVgw" {
+#   vpc_id = aws_vpc.member.id
+# }
 
