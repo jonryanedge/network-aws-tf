@@ -90,6 +90,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "coreVpcTgwAttachment" {
     aws_subnet.core1.id,
     aws_subnet.core2.id,
     ]
+  transit_gateway_default_route_table_association = false
   transit_gateway_id = aws_ec2_transit_gateway.tgw.id
   vpc_id             = aws_vpc.core.id
   tags = {

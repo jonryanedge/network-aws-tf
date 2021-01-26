@@ -50,7 +50,7 @@ resource "aws_route_table_association" "member2RT" {
 resource "aws_ec2_transit_gateway_vpc_attachment" "memberVpcTgwAttachment" {
   subnet_ids         = [aws_subnet.member1.id, aws_subnet.member2.id]
   transit_gateway_id = aws_ec2_transit_gateway.tgw.id
-  transit_gateway_default_route_table_association = true
+  transit_gateway_default_route_table_association = false
   vpc_id             = aws_vpc.member.id
   tags = {
     "Name" = "memberIO"
