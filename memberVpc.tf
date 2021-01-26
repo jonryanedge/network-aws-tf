@@ -67,7 +67,7 @@ resource "aws_ec2_transit_gateway_route_table_propagation" "member-prop-coreVrf"
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.coreRouteTable.id
 }
 
-resource "aws_ec2_transit_gateway_route_table_association" "member-prop-edgeVrf" {
+resource "aws_ec2_transit_gateway_route_table_propagation" "member-prop-edgeVrf" {
   transit_gateway_attachment_id = aws_ec2_transit_gateway_vpc_attachment.memberVpcTgwAttachment.id
   transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.edgeRouteTable.id
 }
