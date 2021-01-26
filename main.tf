@@ -7,8 +7,8 @@ terraform {
   }
   backend "s3" {
     encrypt = true
-    bucket = "cn0av-artifacts"
-    dynamodb_table = "tf-Lock-cn0av"
+    bucket = "backend"
+    dynamodb_table = "TABLE"
     key = "terraform.tfstate"
     region = "us-west-1"
   }

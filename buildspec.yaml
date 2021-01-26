@@ -10,12 +10,14 @@ phases:
       - "mv terraform /usr/local/bin/"
   pre_build:
     commands:
+      - sed -i '' 's/BUCKET/'"$TF_BUCKET"'/g' main.tf
+      - sed -i '' 's/TABLE/'"$TF_TABLE"'/g' main.tf 
       - terraform init
 
   build:
     commands:
-      - terraform destroy -auto-approve 
+      - terraform $TF_COMMAND -auto-approve 
 
   post_build:
     commands:
-      - echo terraform build completed
+      - echo 'terraform '"$TF_COMMAND"' completed'
