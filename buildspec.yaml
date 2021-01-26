@@ -10,8 +10,8 @@ phases:
       - "mv terraform /usr/local/bin/"
   pre_build:
     commands:
-      - sed -i '' 's/BUCKET/'"$TF_BUCKET"'/g' main.tf
-      - sed -i '' 's/TABLE/'"$TF_TABLE"'/g' main.tf 
+      - sed -i.1 's/BUCKET/'"$TF_BUCKET"'/g' main.tf
+      - sed -i.2 's/TABLE/'"$TF_TABLE"'/g' main.tf 
       - terraform init
 
   build:
