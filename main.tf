@@ -7,10 +7,10 @@ terraform {
   }
   backend "s3" {
     encrypt = true
-    bucket = "BUCKET"
-    dynamodb_table = "TABLE"
+    bucket = "TFBUCKET"
+    dynamodb_table = "TFTABLE"
     key = "terraform.tfstate"
-    region = "us-west-1"
+    region = "TFREGION"
   }
 }
 

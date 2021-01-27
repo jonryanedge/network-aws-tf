@@ -12,6 +12,7 @@ phases:
     commands:
       - sed -i.1 's/BUCKET/'"$TF_BUCKET"'/g' main.tf
       - sed -i.2 's/TABLE/'"$TF_TABLE"'/g' main.tf 
+      - sed -i.3 's/REGION/'"$TF_REGION"'/g' main.tf
       - terraform init
 
   build:
