@@ -19,11 +19,13 @@ resource "aws_route" "internalRoute" {
 }
 
 resource "aws_eip" "ngwIp1" {
-  vpc = true
+  domain = "vpc"
+  # vpc = true
 }
 
 resource "aws_eip" "ngwIp2" {
-  vpc = true
+  domain = "vpc"
+  # vpc = true
 }
 
 resource "aws_nat_gateway" "ngw1" {
