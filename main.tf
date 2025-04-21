@@ -5,13 +5,16 @@ terraform {
       version = "~> 2.70"
     }
   }
-  backend "s3" {
-    encrypt = true
-    bucket = "TFBUCKET"
-    dynamodb_table = "TFTABLE"
-    key = "terraform.tfstate"
-    region = "TFREGION"
-  }
+  # DISABLED FOR LOCAL USAGE
+  # SHOWN FOR USE WITH AWS CODEBUILD & CODEPIPELINES
+  #
+  # backend "s3" {
+  #   encrypt = true
+  #   bucket = "TFBUCKET"
+  #   dynamodb_table = "TFTABLE"
+  #   key = "terraform.tfstate"
+  #   region = "TFREGION"
+  # }
 }
 
 provider "aws" {
